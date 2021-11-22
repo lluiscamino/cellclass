@@ -2,7 +2,7 @@ from sklearn.metrics import confusion_matrix, f1_score
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 
-from ZZ_Practica1.utils import get_data, scale_data
+from ZZ_Practica1.utils import get_data, scale_data, generate_submission
 
 X, y = get_data()
 
@@ -18,3 +18,5 @@ cf_matrix = confusion_matrix(y_test, prediction)
 print(cf_matrix)
 f1 = f1_score(y_test, prediction, average="micro")
 print("F1 score:\t", f1)
+
+generate_submission(svc, "output.csv")
