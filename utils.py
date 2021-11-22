@@ -7,9 +7,11 @@ from sklearn.preprocessing import StandardScaler
 
 def get_data() -> Tuple[DataFrame, DataFrame]:
     data = pd.read_csv("data/train.csv")
+    data = data.drop("idx", 1)
+    data = data.drop("path", 1)
 
-    X = data.loc[:, data.columns != "Class"]
-    y = data["Class"].values
+    X = data.loc[:, data.columns != "class"]
+    y = data["class"].values
     return X, y
 
 
