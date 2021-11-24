@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
-from ZZ_Practica1.utils import get_data
+from utils.utils import get_data
 
 X_original, _ = get_data()
 X = StandardScaler().fit_transform(X_original)

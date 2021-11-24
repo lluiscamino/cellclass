@@ -1,7 +1,7 @@
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 
-from ZZ_Practica1.utils import get_data, scale_data, generate_submission, print_model_performance_metrics
+from utils.utils import get_data, scale_data, generate_submission, print_model_performance_metrics
 
 X, y = get_data()
 

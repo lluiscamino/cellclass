@@ -1,7 +1,7 @@
 from sklearn.linear_model import SGDClassifier
 from sklearn.model_selection import train_test_split
 
-from ZZ_Practica1.utils import get_data, scale_data, generate_submission, print_model_performance_metrics
+from utils.utils import get_data, scale_data, generate_submission, print_model_performance_metrics
 
 X, y = get_data()
 

@@ -10,7 +10,7 @@ std_scaler = StandardScaler()
 
 
 def get_data() -> Tuple[DataFrame, DataFrame]:
-    data = pd.read_csv("data/train.csv")
+    data = pd.read_csv("../data/train.csv")
     data = data.drop("idx", 1)
     data = data.drop("path", 1)
 
@@ -38,7 +38,7 @@ def print_model_performance_metrics(y_true: DataFrame, y_pred: DataFrame):
 
 
 def generate_submission(predictor, output_file: string):
-    X = pd.read_csv("data/test.csv")
+    X = pd.read_csv("../data/test.csv")
     idx = X["idx"]
     X = X.loc[:, X.columns != "idx"]
     X = std_scaler.transform(X)
