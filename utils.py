@@ -3,7 +3,7 @@ from typing import Tuple
 
 import pandas as pd
 from pandas import DataFrame
-from sklearn.metrics import confusion_matrix, f1_score
+from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
 from sklearn.preprocessing import StandardScaler
 
 std_scaler = StandardScaler()
@@ -28,6 +28,11 @@ def scale_data(X_train: DataFrame, X_test: DataFrame) -> Tuple[DataFrame, DataFr
 def print_model_performance_metrics(y_true: DataFrame, y_pred: DataFrame):
     cf_matrix = confusion_matrix(y_true, y_pred)
     print(cf_matrix)
+
+    precision = precision_score(y_true, y_pred, average="micro")
+    print("Precision:\t", precision)
+    recall = recall_score(y_true, y_pred, average="micro")
+    print("Recall:\t", recall)
     f1 = f1_score(y_true, y_pred, average="micro")
     print("F1 score:\t", f1)
 
