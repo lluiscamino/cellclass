@@ -1,8 +1,7 @@
 from sklearn.linear_model import SGDClassifier
-from sklearn.metrics import confusion_matrix, f1_score
 from sklearn.model_selection import train_test_split
 
-from ZZ_Practica1.utils import get_data, scale_data, generate_submission
+from ZZ_Practica1.utils import get_data, scale_data, generate_submission, print_model_performance_metrics
 
 X, y = get_data()
 
@@ -14,9 +13,6 @@ clf = SGDClassifier(loss="log", eta0=1, max_iter=1000, learning_rate="constant",
 clf.fit(X_train, y_train)
 prediction = clf.predict(X_test)
 
-cf_matrix = confusion_matrix(y_test, prediction)
-print(cf_matrix)
-f1 = f1_score(y_test, prediction, average="micro")
-print("F1 score:\t", f1)
+print_model_performance_metrics(y_test, prediction)
 
 generate_submission(clf, "output.csv")

@@ -3,9 +3,11 @@ from typing import Tuple
 
 import pandas as pd
 from pandas import DataFrame
+from sklearn.metrics import confusion_matrix, f1_score
 from sklearn.preprocessing import StandardScaler
 
 std_scaler = StandardScaler()
+
 
 def get_data() -> Tuple[DataFrame, DataFrame]:
     data = pd.read_csv("data/train.csv")
@@ -21,6 +23,13 @@ def scale_data(X_train: DataFrame, X_test: DataFrame) -> Tuple[DataFrame, DataFr
     X_train_scaled = std_scaler.fit_transform(X_train)
     X_test_scaled = std_scaler.transform(X_test)
     return X_train_scaled, X_test_scaled
+
+
+def print_model_performance_metrics(y_true: DataFrame, y_pred: DataFrame):
+    cf_matrix = confusion_matrix(y_true, y_pred)
+    print(cf_matrix)
+    f1 = f1_score(y_true, y_pred, average="micro")
+    print("F1 score:\t", f1)
 
 
 def generate_submission(predictor, output_file: string):
