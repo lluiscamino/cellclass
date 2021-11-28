@@ -37,8 +37,9 @@ def print_model_performance_metrics(y_true: DataFrame, y_pred: DataFrame):
     print("F1 score:\t", f1)
 
 
-def generate_submission(predictor, output_file: string):
+def generate_submission(predictor, output_file: string, to_drop=[]):
     X = pd.read_csv("../data/test.csv")
+    X.drop(to_drop, axis=1, inplace=True)
     idx = X["idx"]
     X = X.loc[:, X.columns != "idx"]
     X = std_scaler.transform(X)
