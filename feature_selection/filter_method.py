@@ -14,6 +14,8 @@ def print_corr_matrix(X: DataFrame):
 
 
 # https://stackoverflow.com/a/61938339/8554847
+# https://stats.stackexchange.com/questions/175933/why-is-a-correlation-coefficient-threshold-of-r-0-6-among-predictors-commonly/244451
+# (best threshold: 0.6)
 def remove_collinear_features(x, threshold):
     '''
     Objective:
