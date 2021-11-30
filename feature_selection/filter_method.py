@@ -47,12 +47,12 @@ def remove_collinear_features(x, threshold):
             # If correlation exceeds the threshold
             if val >= threshold:
                 # Print the correlated features and the correlation value
-                print(col.values[0], "|", row.values[0], "|", round(val[0][0], 2))
+                #print(col.values[0], "|", row.values[0], "|", round(val[0][0], 2))
                 drop_cols.append(col.values[0])
 
     # Drop one of each pair of correlated columns
     drops = set(drop_cols)
-    print(drops)
+    #print(drops)
     x.drop(columns=drops, inplace=True)
 
     return drops
