@@ -29,11 +29,11 @@ def print_model_performance_metrics(y_true: DataFrame, y_pred: DataFrame):
     print(cf_matrix)
 
     precision = precision_score(y_true, y_pred, average="micro")
-    print("Precision:\t", precision)
+    print("Precision:", precision)
     recall = recall_score(y_true, y_pred, average="micro")
-    print("Recall:\t", recall)
+    print("Recall:   ", recall)
     f1 = f1_score(y_true, y_pred, average="micro")
-    print("F1 score:\t", f1)
+    print("F1 score: ", f1)
 
 
 def generate_submission(predictor, output_file: string, to_drop=[]):
