@@ -28,11 +28,11 @@ def print_model_performance_metrics(y_true: DataFrame, y_pred: DataFrame):
     cf_matrix = confusion_matrix(y_true, y_pred)
     print(cf_matrix)
 
-    precision = precision_score(y_true, y_pred, average="micro")
+    precision = precision_score(y_true, y_pred, average="weighted")
     print("Precision:", precision)
-    recall = recall_score(y_true, y_pred, average="micro")
+    recall = recall_score(y_true, y_pred, average="weighted")
     print("Recall:   ", recall)
-    f1 = f1_score(y_true, y_pred, average="micro")
+    f1 = f1_score(y_true, y_pred, average="weighted")
     print("F1 score: ", f1)
 
 
