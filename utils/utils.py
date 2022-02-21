@@ -49,3 +49,6 @@ def generate_submission(predictor, output_file: string, to_drop=[]):
     data["idx"] = idx
     data["class"] = prediction
     data.to_csv(output_file, index=False)
+
+    real_classes = pd.read_csv("../data/test/color_test.csv", delimiter=";", decimal=",")["Class"]
+    print_model_performance_metrics(real_classes, data["class"])

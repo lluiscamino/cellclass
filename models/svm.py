@@ -10,7 +10,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 X_train, X_test = scale_data(X_train, X_test)
 
 kernels = ["poly", "sigmoid"]
-c_values = [1, 10, 100, 1000, 10000]
+c_values = [1, 3, 5, 7, 10]
 
 for kernel in kernels:
     print("\nSVC kernel=", kernel)
